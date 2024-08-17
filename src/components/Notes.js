@@ -9,10 +9,12 @@ const Notes = (props) => {
     const context = useContext(noteContext);
     const { notes, getNotes, editNote } = context;
     let navigate = useNavigate();
-    //  navigate("/");
     useEffect(() => {
         if (localStorage.getItem('token'))
             getNotes()
+        else
+            navigate("/login")
+
         // eslint-disable-next-line
     }, [])
 
