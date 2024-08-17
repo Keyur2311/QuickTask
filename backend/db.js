@@ -1,10 +1,16 @@
 const mongoose = require('mongoose')
-const mongoURI = "mongodb+srv://patelkeyur2311:keyur2311@cluster0.ofqvuop.mongodb.net/quicktask?retryWrites=true&w=majority&appName=Cluster0"
-
 const connectToMongo = () => {
-    mongoose.connect(mongoURI, () => {
-        console.log("connected to mongo successfully");
-    })
-}
+    const uri = process.env.MONGO_DB_URI;
+    if (!uri) {
+        console.error('MONGO_DB_URI is not defined in the .env file');
+        return;
+    }
 
+    mongoose.connect(uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+        .then(() => console.log('Connected to MongoDB successfully'))
+        .catch(err => console.error('Failed to connect to MongoDB:', err));
+};
 module.exports = connectToMongo;
