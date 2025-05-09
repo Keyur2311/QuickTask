@@ -1,24 +1,40 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Dependencies
+node_modules/
+package-lock.json
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# frontend-side
+frontend/dist/
+frontend/*.log
+frontend/.env
+frontend/node_modules/
 
-# testing
-/coverage
 
-# production
-/build
+# backend-side
+backend/dist/
+backend/*.log
+backend/.env
+backend/node_modules/
 
-# misc
+# Build artifacts
+build/
+coverage/
+
+# OS/Editor files
 .DS_Store
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.vscode/
+.idea/
 
+# Logs and debug files
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Miscellaneous
+.env
+*.tmp
+*.bak
